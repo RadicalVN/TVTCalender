@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AJob.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AJob.Designer.cs">
+      <DependentUpon>AJob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDailyPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDailyPlan.Designer.cs">
+      <DependentUpon>frmDailyPlan.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +66,12 @@
     </Compile>
     <Compile Include="Calender.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AJob.resx">
+      <DependentUpon>AJob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDailyPlan.resx">
+      <DependentUpon>frmDailyPlan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>

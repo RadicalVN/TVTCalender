@@ -1,10 +1,12 @@
 D:\Lap-Trinh\JuniorWinformCSharp\TVTCalender\Calender\Calender\bin\Debug\Calender.exe.config
 D:\Lap-Trinh\JuniorWinformCSharp\TVTCalender\Calender\Calender\bin\Debug\Calender.exe
 D:\Lap-Trinh\JuniorWinformCSharp\TVTCalender\Calender\Calender\bin\Debug\Calender.pdb
-D:\Lap-Trinh\JuniorWinformCSharp\TVTCalender\Calender\Calender\obj\Debug\Calender.csprojAssemblyReference.cache
 D:\Lap-Trinh\JuniorWinformCSharp\TVTCalender\Calender\Calender\obj\Debug\Calender.FrmMain.resources
 D:\Lap-Trinh\JuniorWinformCSharp\TVTCalender\Calender\Calender\obj\Debug\Calender.Properties.Resources.resources
 D:\Lap-Trinh\JuniorWinformCSharp\TVTCalender\Calender\Calender\obj\Debug\Calender.csproj.GenerateResource.cache
 D:\Lap-Trinh\JuniorWinformCSharp\TVTCalender\Calender\Calender\obj\Debug\Calender.csproj.CoreCompileInputs.cache
 D:\Lap-Trinh\JuniorWinformCSharp\TVTCalender\Calender\Calender\obj\Debug\Calender.exe
 D:\Lap-Trinh\JuniorWinformCSharp\TVTCalender\Calender\Calender\obj\Debug\Calender.pdb
+D:\Lap-Trinh\JuniorWinformCSharp\TVTCalender\Calender\Calender\obj\Debug\Calender.AJob.resources
+D:\Lap-Trinh\JuniorWinformCSharp\TVTCalender\Calender\Calender\obj\Debug\Calender.frmDailyPlan.resources
+D:\Lap-Trinh\JuniorWinformCSharp\TVTCalender\Calender\Calender\obj\Debug\Calender.csprojAssemblyReference.cache

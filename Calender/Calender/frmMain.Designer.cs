@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dtpkDate = new System.Windows.Forms.DateTimePicker();
-            this.btnToday = new System.Windows.Forms.Button();
-            this.cbNotify = new System.Windows.Forms.CheckBox();
             this.nmNotify = new System.Windows.Forms.NumericUpDown();
+            this.cbNotify = new System.Windows.Forms.CheckBox();
+            this.btnToday = new System.Windows.Forms.Button();
+            this.dtpkDate = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnPrivious = new System.Windows.Forms.Button();
-            this.btnMonday = new System.Windows.Forms.Button();
-            this.btnTuesday = new System.Windows.Forms.Button();
-            this.btnWednesday = new System.Windows.Forms.Button();
-            this.btnThursday = new System.Windows.Forms.Button();
-            this.btnFriday = new System.Windows.Forms.Button();
-            this.btnSaturDay = new System.Windows.Forms.Button();
-            this.btnSunday = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnSunday = new System.Windows.Forms.Button();
+            this.btnSaturDay = new System.Windows.Forms.Button();
+            this.btnFriday = new System.Windows.Forms.Button();
+            this.btnThursday = new System.Windows.Forms.Button();
+            this.btnWednesday = new System.Windows.Forms.Button();
+            this.btnTuesday = new System.Windows.Forms.Button();
+            this.btnMonday = new System.Windows.Forms.Button();
+            this.btnPrivious = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmNotify)).BeginInit();
             this.panel2.SuspendLayout();
@@ -61,33 +61,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(738, 24);
             this.panel1.TabIndex = 0;
-            // 
-            // dtpkDate
-            // 
-            this.dtpkDate.Location = new System.Drawing.Point(236, 1);
-            this.dtpkDate.Name = "dtpkDate";
-            this.dtpkDate.Size = new System.Drawing.Size(200, 20);
-            this.dtpkDate.TabIndex = 0;
-            // 
-            // btnToday
-            // 
-            this.btnToday.Location = new System.Drawing.Point(442, -1);
-            this.btnToday.Name = "btnToday";
-            this.btnToday.Size = new System.Drawing.Size(75, 23);
-            this.btnToday.TabIndex = 1;
-            this.btnToday.Text = "Hôm nay";
-            this.btnToday.UseVisualStyleBackColor = true;
-            this.btnToday.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // cbNotify
-            // 
-            this.cbNotify.AutoSize = true;
-            this.cbNotify.Location = new System.Drawing.Point(4, 4);
-            this.cbNotify.Name = "cbNotify";
-            this.cbNotify.Size = new System.Drawing.Size(78, 17);
-            this.cbNotify.TabIndex = 2;
-            this.cbNotify.Text = "Thông báo";
-            this.cbNotify.UseVisualStyleBackColor = true;
             // 
             // nmNotify
             // 
@@ -111,6 +84,32 @@
             0,
             0});
             // 
+            // cbNotify
+            // 
+            this.cbNotify.AutoSize = true;
+            this.cbNotify.Location = new System.Drawing.Point(4, 4);
+            this.cbNotify.Name = "cbNotify";
+            this.cbNotify.Size = new System.Drawing.Size(78, 17);
+            this.cbNotify.TabIndex = 2;
+            this.cbNotify.Text = "Thông báo";
+            this.cbNotify.UseVisualStyleBackColor = true;
+            // 
+            // btnToday
+            // 
+            this.btnToday.Location = new System.Drawing.Point(442, -1);
+            this.btnToday.Name = "btnToday";
+            this.btnToday.Size = new System.Drawing.Size(75, 23);
+            this.btnToday.TabIndex = 1;
+            this.btnToday.Text = "Hôm nay";
+            this.btnToday.UseVisualStyleBackColor = true;
+            // 
+            // dtpkDate
+            // 
+            this.dtpkDate.Location = new System.Drawing.Point(236, 1);
+            this.dtpkDate.Name = "dtpkDate";
+            this.dtpkDate.Size = new System.Drawing.Size(200, 20);
+            this.dtpkDate.TabIndex = 0;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel4);
@@ -119,6 +118,13 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(738, 326);
             this.panel2.TabIndex = 1;
+            // 
+            // panel4
+            // 
+            this.panel4.Location = new System.Drawing.Point(88, 56);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(561, 267);
+            this.panel4.TabIndex = 1;
             // 
             // panel3
             // 
@@ -136,68 +142,14 @@
             this.panel3.Size = new System.Drawing.Size(730, 47);
             this.panel3.TabIndex = 0;
             // 
-            // btnPrivious
+            // btnNext
             // 
-            this.btnPrivious.Location = new System.Drawing.Point(3, 3);
-            this.btnPrivious.Name = "btnPrivious";
-            this.btnPrivious.Size = new System.Drawing.Size(75, 40);
-            this.btnPrivious.TabIndex = 0;
-            this.btnPrivious.Text = "Tháng trước";
-            this.btnPrivious.UseVisualStyleBackColor = true;
-            // 
-            // btnMonday
-            // 
-            this.btnMonday.Location = new System.Drawing.Point(84, 3);
-            this.btnMonday.Name = "btnMonday";
-            this.btnMonday.Size = new System.Drawing.Size(75, 40);
-            this.btnMonday.TabIndex = 1;
-            this.btnMonday.Text = "Thứ 2";
-            this.btnMonday.UseVisualStyleBackColor = true;
-            // 
-            // btnTuesday
-            // 
-            this.btnTuesday.Location = new System.Drawing.Point(165, 3);
-            this.btnTuesday.Name = "btnTuesday";
-            this.btnTuesday.Size = new System.Drawing.Size(75, 40);
-            this.btnTuesday.TabIndex = 2;
-            this.btnTuesday.Text = "Thứ 3";
-            this.btnTuesday.UseVisualStyleBackColor = true;
-            // 
-            // btnWednesday
-            // 
-            this.btnWednesday.Location = new System.Drawing.Point(246, 3);
-            this.btnWednesday.Name = "btnWednesday";
-            this.btnWednesday.Size = new System.Drawing.Size(75, 40);
-            this.btnWednesday.TabIndex = 3;
-            this.btnWednesday.Text = "Thứ 4";
-            this.btnWednesday.UseVisualStyleBackColor = true;
-            // 
-            // btnThursday
-            // 
-            this.btnThursday.Location = new System.Drawing.Point(327, 3);
-            this.btnThursday.Name = "btnThursday";
-            this.btnThursday.Size = new System.Drawing.Size(75, 40);
-            this.btnThursday.TabIndex = 4;
-            this.btnThursday.Text = "Thứ 5";
-            this.btnThursday.UseVisualStyleBackColor = true;
-            // 
-            // btnFriday
-            // 
-            this.btnFriday.Location = new System.Drawing.Point(408, 3);
-            this.btnFriday.Name = "btnFriday";
-            this.btnFriday.Size = new System.Drawing.Size(75, 40);
-            this.btnFriday.TabIndex = 5;
-            this.btnFriday.Text = "Thứ 6";
-            this.btnFriday.UseVisualStyleBackColor = true;
-            // 
-            // btnSaturDay
-            // 
-            this.btnSaturDay.Location = new System.Drawing.Point(489, 3);
-            this.btnSaturDay.Name = "btnSaturDay";
-            this.btnSaturDay.Size = new System.Drawing.Size(75, 40);
-            this.btnSaturDay.TabIndex = 6;
-            this.btnSaturDay.Text = "Thứ 7";
-            this.btnSaturDay.UseVisualStyleBackColor = true;
+            this.btnNext.Location = new System.Drawing.Point(651, 3);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 40);
+            this.btnNext.TabIndex = 8;
+            this.btnNext.Text = "Tháng sau";
+            this.btnNext.UseVisualStyleBackColor = true;
             // 
             // btnSunday
             // 
@@ -208,21 +160,68 @@
             this.btnSunday.Text = "Chủ nhật";
             this.btnSunday.UseVisualStyleBackColor = true;
             // 
-            // btnNext
+            // btnSaturDay
             // 
-            this.btnNext.Location = new System.Drawing.Point(651, 3);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(75, 40);
-            this.btnNext.TabIndex = 8;
-            this.btnNext.Text = "Tháng sau";
-            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnSaturDay.Location = new System.Drawing.Point(489, 3);
+            this.btnSaturDay.Name = "btnSaturDay";
+            this.btnSaturDay.Size = new System.Drawing.Size(75, 40);
+            this.btnSaturDay.TabIndex = 6;
+            this.btnSaturDay.Text = "Thứ 7";
+            this.btnSaturDay.UseVisualStyleBackColor = true;
             // 
-            // panel4
+            // btnFriday
             // 
-            this.panel4.Location = new System.Drawing.Point(88, 56);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(561, 267);
-            this.panel4.TabIndex = 1;
+            this.btnFriday.Location = new System.Drawing.Point(408, 3);
+            this.btnFriday.Name = "btnFriday";
+            this.btnFriday.Size = new System.Drawing.Size(75, 40);
+            this.btnFriday.TabIndex = 5;
+            this.btnFriday.Text = "Thứ 6";
+            this.btnFriday.UseVisualStyleBackColor = true;
+            // 
+            // btnThursday
+            // 
+            this.btnThursday.Location = new System.Drawing.Point(327, 3);
+            this.btnThursday.Name = "btnThursday";
+            this.btnThursday.Size = new System.Drawing.Size(75, 40);
+            this.btnThursday.TabIndex = 4;
+            this.btnThursday.Text = "Thứ 5";
+            this.btnThursday.UseVisualStyleBackColor = true;
+            // 
+            // btnWednesday
+            // 
+            this.btnWednesday.Location = new System.Drawing.Point(246, 3);
+            this.btnWednesday.Name = "btnWednesday";
+            this.btnWednesday.Size = new System.Drawing.Size(75, 40);
+            this.btnWednesday.TabIndex = 3;
+            this.btnWednesday.Text = "Thứ 4";
+            this.btnWednesday.UseVisualStyleBackColor = true;
+            // 
+            // btnTuesday
+            // 
+            this.btnTuesday.Location = new System.Drawing.Point(165, 3);
+            this.btnTuesday.Name = "btnTuesday";
+            this.btnTuesday.Size = new System.Drawing.Size(75, 40);
+            this.btnTuesday.TabIndex = 2;
+            this.btnTuesday.Text = "Thứ 3";
+            this.btnTuesday.UseVisualStyleBackColor = true;
+            // 
+            // btnMonday
+            // 
+            this.btnMonday.Location = new System.Drawing.Point(84, 3);
+            this.btnMonday.Name = "btnMonday";
+            this.btnMonday.Size = new System.Drawing.Size(75, 40);
+            this.btnMonday.TabIndex = 1;
+            this.btnMonday.Text = "Thứ 2";
+            this.btnMonday.UseVisualStyleBackColor = true;
+            // 
+            // btnPrivious
+            // 
+            this.btnPrivious.Location = new System.Drawing.Point(3, 3);
+            this.btnPrivious.Name = "btnPrivious";
+            this.btnPrivious.Size = new System.Drawing.Size(75, 40);
+            this.btnPrivious.TabIndex = 0;
+            this.btnPrivious.Text = "Tháng trước";
+            this.btnPrivious.UseVisualStyleBackColor = true;
             // 
             // FrmMain
             // 

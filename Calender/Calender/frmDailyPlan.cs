@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Calender
 {
-    public partial class FrmMain : Form
+    public partial class frmDailyPlan : Form
     {
-        public FrmMain()
+        public frmDailyPlan()
         {
             InitializeComponent();
         }
