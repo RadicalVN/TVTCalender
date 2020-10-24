@@ -15,9 +15,35 @@ namespace Calender
         public FrmMain()
         {
             InitializeComponent();
+
+            LoadMatrix();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        void LoadMatrix()
+        {
+            // Khai báo button đầu tiên và dùng thuộc tính Location của nó để những button khác tham chiếu đến
+            Button oldButton = new Button() {Width = 0, Height = 0, Location = new Point(-Cons.margin, 0) };
+
+            for (int i = 0; i < Cons.weekOfFrame; i++)
+            {
+                for (int j = 0; j < Cons.dayOfWeek; j++)
+                {
+                    Button btn = new Button()
+                    {
+                        Width = Cons.dateButtonWidth,
+                        Height = Cons.dateButtonHeight,
+                        Location = new Point(oldButton.Location.X + oldButton.Width + Cons.margin, oldButton.Location.Y)
+                    };
+
+                    pnlMatrix.Controls.Add(btn);
+
+                    oldButton = btn;
+                }
+                oldButton = new Button() { Width = 0, Height = 0, Location = new Point(-Cons.margin, oldButton.Location.Y + oldButton.Height + Cons.margin) };
+            }
+        }
+
+        void AddDateToMatrix(DateTime date)
         {
 
         }
