@@ -34,7 +34,7 @@
             this.btnToday = new System.Windows.Forms.Button();
             this.dtpkDate = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.pnlMatrix = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnSunday = new System.Windows.Forms.Button();
@@ -112,19 +112,19 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.pnlMatrix);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Location = new System.Drawing.Point(12, 41);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(738, 326);
+            this.panel2.Size = new System.Drawing.Size(738, 331);
             this.panel2.TabIndex = 1;
             // 
-            // panel4
+            // pnlMatrix
             // 
-            this.panel4.Location = new System.Drawing.Point(88, 56);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(561, 267);
-            this.panel4.TabIndex = 1;
+            this.pnlMatrix.Location = new System.Drawing.Point(88, 56);
+            this.pnlMatrix.Name = "pnlMatrix";
+            this.pnlMatrix.Size = new System.Drawing.Size(580, 272);
+            this.pnlMatrix.TabIndex = 1;
             // 
             // panel3
             // 
@@ -227,7 +227,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(760, 379);
+            this.ClientSize = new System.Drawing.Size(760, 377);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FrmMain";
@@ -249,7 +249,7 @@
         private System.Windows.Forms.NumericUpDown nmNotify;
         private System.Windows.Forms.CheckBox cbNotify;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel pnlMatrix;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnSunday;

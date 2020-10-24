@@ -52,6 +52,7 @@
     <Compile Include="AJob.Designer.cs">
       <DependentUpon>AJob.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cons.cs" />
     <Compile Include="frmDailyPlan.cs">
       <SubType>Form</SubType>
     </Compile>
