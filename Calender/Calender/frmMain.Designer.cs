@@ -171,12 +171,13 @@
             // 
             // btnFriday
             // 
+            this.btnFriday.BackColor = System.Drawing.SystemColors.Control;
             this.btnFriday.Location = new System.Drawing.Point(408, 3);
             this.btnFriday.Name = "btnFriday";
             this.btnFriday.Size = new System.Drawing.Size(75, 40);
             this.btnFriday.TabIndex = 5;
             this.btnFriday.Text = "Thứ 6";
-            this.btnFriday.UseVisualStyleBackColor = true;
+            this.btnFriday.UseVisualStyleBackColor = false;
             // 
             // btnThursday
             // 
