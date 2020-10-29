@@ -22,6 +22,11 @@ namespace Calender
             get { return matrix; }
             set { matrix = value; }
         }
+
+        private List<string> dateOfWeek = new List<string>()
+        {
+            "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+        };
         #endregion
 
         public FrmMain()
@@ -63,7 +68,9 @@ namespace Calender
             }
 
             ClearMatrixButton();
+            AddDateToMatrix(dtpkDate.Value);
         }
+
         void ClearMatrixButton()
         {
             for (int i = 0; i < Matrix.Count; i++)
@@ -76,9 +83,76 @@ namespace Calender
                 }
             }
         }
+
         void AddDateToMatrix(DateTime date)
         {
+            DateTime useDate = new DateTime(date.Year, date.Month,1);
+            int dayOfMonth = TVTDateTime.DayOfMonth(date); // Số ngày của tháng truyền vào từ datetimepicker
+            int dayOfPreviousMonth = TVTDateTime.DayOfPreviousMonth(date); // Số ngày của tháng trước đó
 
+            // Cột hiển thị ngày 1 của tháng được chọn
+            int indexColumn = dateOfWeek.IndexOf(useDate.DayOfWeek.ToString());
+
+            //int offsetDate = 1;
+            int dateS = dayOfPreviousMonth - (indexColumn - 1); 
+
+            for (int i = 0; i < Cons.weekOfFrame; i++)
+            {
+                for (int j = 0; j < Cons.dayOfWeek; j++)
+                {
+                    Button btn = Matrix[i][j];
+                    
+                    if (((i == 0) && (dateS > dayOfPreviousMonth)) || ((i != 0) && (dateS > dayOfMonth)))
+                    {
+                        dateS = 1;
+                    }
+                    
+                    if ((i == 0 && dateS > 7) || (i > 3 && dateS < 15))
+                    {
+                        btn.ForeColor = Color.Silver;
+                    }
+                    else
+                    {
+                        btn.ForeColor = Color.Black;
+
+                        // Ngày được chọn trên dtpk thì màu Aqua
+                        if (dateS == date.Day)
+                        {
+                            btn.BackColor = Color.SkyBlue;
+                        }
+
+                        // Ngày được chọn bằng ngày hiện tại thì màu blue
+                        if((DateTime.Now.Month == date.Month) && (DateTime.Now.Day == dateS))
+                        {
+                            btn.BackColor = Color.Aqua;
+                        }
+                    }
+                    
+                    btn.Text = dateS.ToString();
+                    dateS++;
+                }
+            }
+        }
+
+        private void dtpkDate_ValueChanged(object sender, EventArgs e)
+        {
+            ClearMatrixButton();
+            AddDateToMatrix((sender as DateTimePicker).Value);
+        }
+
+        private void btnPrivious_Click(object sender, EventArgs e)
+        {
+            dtpkDate.Value = dtpkDate.Value.AddMonths(-1);
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            dtpkDate.Value = dtpkDate.Value.AddMonths(1);
+        }
+
+        private void btnToday_Click(object sender, EventArgs e)
+        {
+            dtpkDate.Value = DateTime.Now;
         }
     }
 }
