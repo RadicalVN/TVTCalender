@@ -32,7 +32,6 @@ namespace Calender
         public FrmMain()
         {
             InitializeComponent();
-
             LoadMatrixButton();
         }
 
@@ -42,7 +41,7 @@ namespace Calender
             Matrix = new List<List<Button>>();
 
             // Khai báo button đầu tiên và dùng thuộc tính Location của nó để những button khác tham chiếu đến
-            Button oldButton = new Button() {Width = 0, Height = 0, Location = new Point(-Cons.margin, 0) };
+            Button oldButton = new Button() { Width = 0, Height = 0, Location = new Point(-Cons.margin, 0) };
 
             for (int i = 0; i < Cons.weekOfFrame; i++)
             {
@@ -86,7 +85,7 @@ namespace Calender
 
         void AddDateToMatrix(DateTime date)
         {
-            DateTime useDate = new DateTime(date.Year, date.Month,1);
+            DateTime useDate = new DateTime(date.Year, date.Month, 1);
             int dayOfMonth = TVTDateTime.DayOfMonth(date); // Số ngày của tháng truyền vào từ datetimepicker
             int dayOfPreviousMonth = TVTDateTime.DayOfPreviousMonth(date); // Số ngày của tháng trước đó
 
@@ -94,19 +93,23 @@ namespace Calender
             int indexColumn = dateOfWeek.IndexOf(useDate.DayOfWeek.ToString());
 
             //int offsetDate = 1;
-            int dateS = dayOfPreviousMonth - (indexColumn - 1); 
+            int dateS = dayOfPreviousMonth - (indexColumn - 1);
 
             for (int i = 0; i < Cons.weekOfFrame; i++)
             {
                 for (int j = 0; j < Cons.dayOfWeek; j++)
                 {
                     Button btn = Matrix[i][j];
+                    //EventArgs e = new EventArgs(int i, j);
+                    // Ủy thác event cho từng button trong matrix
+                    btn.Click += Btn_Click;
                     
+
                     if (((i == 0) && (dateS > dayOfPreviousMonth)) || ((i != 0) && (dateS > dayOfMonth)))
                     {
                         dateS = 1;
                     }
-                    
+
                     if ((i == 0 && dateS > 7) || (i > 3 && dateS < 15))
                     {
                         btn.ForeColor = Color.Silver;
@@ -122,16 +125,23 @@ namespace Calender
                         }
 
                         // Ngày được chọn bằng ngày hiện tại thì màu blue
-                        if((DateTime.Now.Month == date.Month) && (DateTime.Now.Day == dateS))
+                        if ((DateTime.Now.Month == date.Month) && (DateTime.Now.Day == dateS))
                         {
                             btn.BackColor = Color.Aqua;
                         }
                     }
-                    
+
                     btn.Text = dateS.ToString();
+                    
                     dateS++;
                 }
             }
+        }
+
+        private void Btn_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            
         }
 
         private void dtpkDate_ValueChanged(object sender, EventArgs e)

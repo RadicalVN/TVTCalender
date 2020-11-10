@@ -103,6 +103,8 @@
             this.btnToday.Text = "Hôm nay";
             this.btnToday.UseVisualStyleBackColor = true;
             this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
+
+            
             // 
             // dtpkDate
             // 
