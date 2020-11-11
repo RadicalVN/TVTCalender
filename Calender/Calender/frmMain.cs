@@ -35,6 +35,7 @@ namespace Calender
             LoadMatrixButton();
         }
 
+        #region // Method of User define
         void LoadMatrixButton()
         {
             // Khai báo, cấp phát vùng nhớ cho Matrix (mảng 2 chiều kiểu List)
@@ -70,8 +71,7 @@ namespace Calender
             ClearMatrixButton();
             AddDateToMatrix(dtpkDate.Value);
         }
-
-
+        
         void ClearMatrixButton()
         {
             for (int i = 0; i < Matrix.Count; i++)
@@ -201,6 +201,9 @@ namespace Calender
                 }
             }
         }
+        #endregion
+
+        #region // Method of handling the Event
         private void dtpkDate_ValueChanged(object sender, EventArgs e)
         {
             ClearMatrixButton();
@@ -229,5 +232,7 @@ namespace Calender
 
             dtpkDate.Value = date;
         }
+
+        #endregion
     }
 }

@@ -57,13 +57,13 @@ namespace Calender
         public UserButton()
         {
             InitializeComponent();
-        }
+        }// Constructor
 
         public UserButton(IContainer container)
         {
             container.Add(this);
 
             InitializeComponent();
-        }
+        }// Constructor
     }
 }

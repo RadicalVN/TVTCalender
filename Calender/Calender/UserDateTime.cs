@@ -20,6 +20,12 @@ namespace Calender
             return DateTime.DaysInMonth(date.Year, date.Month);
         }
 
+        /// <summary>
+        /// Phương thức so sánh 2 ngày, nếu giống trả về true, khác trả về false
+        /// </summary>
+        /// <param name="A"></param>
+        /// <param name="B"></param>
+        /// <returns></returns>
         public static bool IsEqualDay(DateTime A, DateTime B)
         {
             if (A.Year == B.Year && A.Month == B.Month && A.Day == B.Day)
