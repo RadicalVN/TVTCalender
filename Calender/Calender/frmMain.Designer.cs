@@ -36,10 +36,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnlMatrix = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnFriday = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnSunday = new System.Windows.Forms.Button();
             this.btnSaturDay = new System.Windows.Forms.Button();
-            this.btnFriday = new System.Windows.Forms.Button();
             this.btnThursday = new System.Windows.Forms.Button();
             this.btnWednesday = new System.Windows.Forms.Button();
             this.btnTuesday = new System.Windows.Forms.Button();
@@ -102,6 +102,7 @@
             this.btnToday.TabIndex = 1;
             this.btnToday.Text = "Hôm nay";
             this.btnToday.UseVisualStyleBackColor = true;
+            this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
             // 
             // dtpkDate
             // 
@@ -109,6 +110,7 @@
             this.dtpkDate.Name = "dtpkDate";
             this.dtpkDate.Size = new System.Drawing.Size(200, 20);
             this.dtpkDate.TabIndex = 0;
+            this.dtpkDate.ValueChanged += new System.EventHandler(this.dtpkDate_ValueChanged);
             // 
             // panel2
             // 
@@ -128,10 +130,10 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnFriday);
             this.panel3.Controls.Add(this.btnNext);
             this.panel3.Controls.Add(this.btnSunday);
             this.panel3.Controls.Add(this.btnSaturDay);
-            this.panel3.Controls.Add(this.btnFriday);
             this.panel3.Controls.Add(this.btnThursday);
             this.panel3.Controls.Add(this.btnWednesday);
             this.panel3.Controls.Add(this.btnTuesday);
@@ -142,6 +144,15 @@
             this.panel3.Size = new System.Drawing.Size(730, 47);
             this.panel3.TabIndex = 0;
             // 
+            // btnFriday
+            // 
+            this.btnFriday.Location = new System.Drawing.Point(408, 3);
+            this.btnFriday.Name = "btnFriday";
+            this.btnFriday.Size = new System.Drawing.Size(75, 40);
+            this.btnFriday.TabIndex = 9;
+            this.btnFriday.Text = "Thứ 6";
+            this.btnFriday.UseVisualStyleBackColor = true;
+            // 
             // btnNext
             // 
             this.btnNext.Location = new System.Drawing.Point(651, 3);
@@ -150,6 +161,7 @@
             this.btnNext.TabIndex = 8;
             this.btnNext.Text = "Tháng sau";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnSunday
             // 
@@ -168,15 +180,6 @@
             this.btnSaturDay.TabIndex = 6;
             this.btnSaturDay.Text = "Thứ 7";
             this.btnSaturDay.UseVisualStyleBackColor = true;
-            // 
-            // btnFriday
-            // 
-            this.btnFriday.Location = new System.Drawing.Point(408, 3);
-            this.btnFriday.Name = "btnFriday";
-            this.btnFriday.Size = new System.Drawing.Size(75, 40);
-            this.btnFriday.TabIndex = 5;
-            this.btnFriday.Text = "Thứ 6";
-            this.btnFriday.UseVisualStyleBackColor = true;
             // 
             // btnThursday
             // 
@@ -222,11 +225,13 @@
             this.btnPrivious.TabIndex = 0;
             this.btnPrivious.Text = "Tháng trước";
             this.btnPrivious.UseVisualStyleBackColor = true;
+            this.btnPrivious.Click += new System.EventHandler(this.btnPrivious_Click);
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(760, 377);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -254,12 +259,12 @@
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnSunday;
         private System.Windows.Forms.Button btnSaturDay;
-        private System.Windows.Forms.Button btnFriday;
         private System.Windows.Forms.Button btnThursday;
         private System.Windows.Forms.Button btnWednesday;
         private System.Windows.Forms.Button btnTuesday;
         private System.Windows.Forms.Button btnMonday;
         private System.Windows.Forms.Button btnPrivious;
+        private System.Windows.Forms.Button btnFriday;
     }
 }
 
