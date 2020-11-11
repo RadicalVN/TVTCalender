@@ -6,13 +6,32 @@ using System.Threading.Tasks;
 
 namespace Calender
 {
-    class TVTDateTime
+    class UserDateTime
     {
+
+        #region // Đoạn code được thay thế để test
         /// <summary>
         /// Trả về số ngày của tháng được truyền vào 
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
+        public static int DayOfMonth(DateTime date)
+        {
+            return DateTime.DaysInMonth(date.Year, date.Month);
+        }
+
+        public static bool IsEqualDay(DateTime A, DateTime B)
+        {
+            if (A.Year == B.Year && A.Month == B.Month && A.Day == B.Day)
+                return true;
+            else
+                return false;
+        }
+
+        #endregion
+
+        #region // Tạm thay thế đoạn code khác để test
+        /*
         public static int DayOfMonth(DateTime date)
         {
             switch(date.Month)
@@ -61,5 +80,7 @@ namespace Calender
 
             }
         }
+        */
+        #endregion
     }
 }
