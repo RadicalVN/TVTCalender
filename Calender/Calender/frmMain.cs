@@ -125,11 +125,13 @@ namespace Calender
 
                     if (ToDay.Month < date.Month) // Tháng trước
                     {
+                        btn.Enabled = false;
                         btn.ForeColor = Color.Silver;
                         btn.Text = ToDay.Day.ToString();
                     }
                     else if(ToDay.Month == date.Month) // Tháng hiện tại
                     {
+                        btn.Enabled = true;
                         btn.ForeColor = Color.Black;
                         if (ToDay.Day == 1)
                         {
@@ -142,6 +144,7 @@ namespace Calender
                     }
                     else // Tháng sau
                     {
+                        btn.Enabled = false;
                         btn.ForeColor = Color.Silver;
                         if (ToDay.Day == 1)
                         {
