@@ -35,6 +35,7 @@ namespace Calender
             LoadMatrixButton();
         }
 
+        #region // Method of User define
         void LoadMatrixButton()
         {
             // Khai báo, cấp phát vùng nhớ cho Matrix (mảng 2 chiều kiểu List)
@@ -70,8 +71,7 @@ namespace Calender
             ClearMatrixButton();
             AddDateToMatrix(dtpkDate.Value);
         }
-
-
+        
         void ClearMatrixButton()
         {
             for (int i = 0; i < Matrix.Count; i++)
@@ -125,11 +125,13 @@ namespace Calender
 
                     if (ToDay.Month < date.Month) // Tháng trước
                     {
+                        btn.Enabled = false;
                         btn.ForeColor = Color.Silver;
                         btn.Text = ToDay.Day.ToString();
                     }
                     else if(ToDay.Month == date.Month) // Tháng hiện tại
                     {
+                        btn.Enabled = true;
                         btn.ForeColor = Color.Black;
                         if (ToDay.Day == 1)
                         {
@@ -142,6 +144,7 @@ namespace Calender
                     }
                     else // Tháng sau
                     {
+                        btn.Enabled = false;
                         btn.ForeColor = Color.Silver;
                         if (ToDay.Day == 1)
                         {
@@ -201,6 +204,9 @@ namespace Calender
                 }
             }
         }
+        #endregion
+
+        #region // Method of handling the Event
         private void dtpkDate_ValueChanged(object sender, EventArgs e)
         {
             ClearMatrixButton();
@@ -229,5 +235,7 @@ namespace Calender
 
             dtpkDate.Value = date;
         }
+
+        #endregion
     }
 }
