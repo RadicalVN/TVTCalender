@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace Calender
 {
 
     public partial class FrmMain : Form
     {
-
         #region // Properties
 
         private List<List<UserButton>> matrix;
@@ -27,12 +28,31 @@ namespace Calender
         {
             "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
         };
+
+        private PlanData _JobObj;
+        /// <summary>
+        /// Đối tượng công việc
+        /// </summary>
+        public PlanData JobObj { get => _JobObj; set => _JobObj = value; }
+
+        private string filePath = "data.xml";
+
         #endregion
 
         public FrmMain()
         {
             InitializeComponent();
             LoadMatrixButton();
+
+            try
+            {
+                DeserializeFromXML(filePath);
+            }
+            catch
+            {
+                SetDefaultJobData();
+            } // Load data lập lịch lên
+
         }
 
         #region // Method of User define
@@ -50,27 +70,27 @@ namespace Calender
                 Matrix.Add(new List<UserButton>());
                 for (int j = 0; j < Cons.dayOfWeek; j++)
                 {
-                    UserButton btn = new UserButton()
+                    UserButton btnMatrix = new UserButton()
                     {
                         Width = Cons.dateButtonWidth,
                         Height = Cons.dateButtonHeight,
                         Location = new Point(oldButton.Location.X + oldButton.Width + Cons.margin, oldButton.Location.Y)
                     };
-                    btn.Click += Btn_Click;
+                    btnMatrix.Click += BtnMatrix_Click;
 
-                    pnlMatrix.Controls.Add(btn);
+                    pnlMatrix.Controls.Add(btnMatrix);
 
-                    oldButton = btn;
+                    oldButton = btnMatrix;
 
                     // Add đối tượng btn (kiểu Button) vào mảng i
-                    Matrix[i].Add(btn);
+                    Matrix[i].Add(btnMatrix);
                 }
                 oldButton = new UserButton() { Width = 0, Height = 0, Location = new Point(-Cons.margin, oldButton.Location.Y + oldButton.Height + Cons.margin) };
             }
 
             ClearMatrixButton();
             AddDateToMatrix(dtpkDate.Value);
-        }
+        } // Load MatrixButton lên Form (Lên Panel)
         
         void ClearMatrixButton()
         {
@@ -83,7 +103,7 @@ namespace Calender
                     btn.BackColor = Color.WhiteSmoke;
                 }
             }
-        }
+        } // Clear MatrixButton về mặc định
 
         void AddDateToMatrix(DateTime date)
         {
@@ -203,7 +223,65 @@ namespace Calender
                     #endregion
                 }
             }
-        }
+        } // Add ngày vào Button trong Matrix
+
+        private void SerializeToXML(object data, string filePath)
+        {
+            // Khai một đối tượng để tạo kết nối ứng dụng đến data, đồng thời cấu hình:
+            // Đường dẫn data = filePath, 
+            // Chế độ mở file: Mở hoặc tạo mới file nếu file chưa tồn tại,
+            // Chế độ truy cập file: Mở file để ghi data vào,
+            // Chế độ share data: không cho phép tiến trình khác truy cập (đọc/ghi/delete) nếu tiến trình hiện tại đang truy cập
+            FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.ReadWrite);
+            
+            // Khai báo một đối tượng để Serialize (ghi và lưu) data (PlanData) xuống bộ nhớ
+            // Chỉ định lưu (serialize) thành file XML
+            // Serialize theo cấu trúc dữ liệu nào (hiện tại là kiểu dữ liệu PlanData)
+            XmlSerializer sr = new XmlSerializer(typeof(PlanData));
+
+            // Thực hiện mở lưu data xuống
+            sr.Serialize(fs, data);
+
+            // Đóng kết nối
+            fs.Close();
+        } // Kết nối và lưu data xuống
+
+        private object DeserializeFromXML(string filePath)
+        {
+            FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.None);
+            try
+            {
+
+                XmlSerializer sr = new XmlSerializer(typeof(PlanData));
+                object result = sr.Deserialize(fs);
+                fs.Close();
+                return result;
+            }
+            catch
+            {
+                fs.Close();
+                throw new NotImplementedException();
+            }
+        } // Kết nối và load data lên
+
+        private void SetDefaultJobData()
+        {
+            // Khởi tạo, cấp phát đối tượng
+            JobObj = new PlanData();
+
+            // Khai báo và khởi tạo 1 job mặc định
+            PlanItem jobDefault = new PlanItem()
+            {
+                Date = DateTime.Now,
+                Job = "Công việc mặc định, hãy chỉnh sửa",
+                FromTime = DateTime.Now,
+                ToTime = DateTime.Now.AddHours(1),
+                Status = PlanItem.JobStatus[(int)EJobStatus.DOING]
+            };
+
+            // Thêm jobDefault vào JobData (Danh sách công việc - data)
+            JobObj.JobData = new List<PlanItem>() {jobDefault};
+        }// Thêm 1 công việc mặc định
         #endregion
 
         #region // Method of handling the Event
@@ -228,14 +306,20 @@ namespace Calender
             dtpkDate.Value = DateTime.Now;
         }
 
-        private void Btn_Click(object sender, EventArgs e)
+        private void BtnMatrix_Click(object sender, EventArgs e)
         {
             UserButton btn = sender as UserButton;
             DateTime date = new DateTime(btn.Year, btn.Month, btn.Day);
-
             dtpkDate.Value = date;
+
+            frmDailyPlan daily = new frmDailyPlan(date, JobObj);
+            daily.ShowDialog();
         }
 
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SerializeToXML(JobObj, filePath);
+        }
         #endregion
     }
 }
