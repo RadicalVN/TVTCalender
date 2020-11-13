@@ -41,7 +41,7 @@ namespace Calender
             // Trạng thái công việc (chỉ số của công việc đó trong danh sách (list JobStatus)) = (int)Enum.DONE (EJobStatus)
             ckbDone.Checked = (PlanItem.JobStatus.IndexOf(Job.Status) == (int)EJobStatus.DONE) ? true: false;
 
-            txbJob.Text = Job.Status;
+            txbJob.Text = Job.Job;
 
             nmFromHour.Value = Job.FromTime.Hour;
             nmFormMinute.Value = Job.FromTime.Minute;

@@ -46,7 +46,7 @@ namespace Calender
 
             try
             {
-                DeserializeFromXML(filePath);
+                JobObj =  DeserializeFromXML(filePath) as PlanData;
             }
             catch
             {
