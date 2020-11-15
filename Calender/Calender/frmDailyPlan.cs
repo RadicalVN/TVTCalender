@@ -137,12 +137,18 @@ namespace Calender
 
         private void MnsiAddJob_Click(object sender, EventArgs e)
         {
+            PlanItem newItem = new PlanItem();
+            newItem.Date = dtpkDate.Value;
 
+            AJob newJob = new AJob(newItem);
+
+            fpnlJobs.Controls.Add(newJob);
+            JobDataByDate.JobData.Add(newItem);
         }
 
         private void MnsiToDay_Click(object sender, EventArgs e)
         {
-
+            dtpkDate.Value = DateTime.Now;
         }
 
         private void AJob_DeleteJob(object sender, EventArgs e)

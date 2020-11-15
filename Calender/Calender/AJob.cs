@@ -17,7 +17,7 @@ namespace Calender
         private PlanItem _Job;
         // Một công việc
         public PlanItem Job { get => _Job; set => _Job = value; }
-
+        
         #endregion
 
         #region // Event
@@ -98,16 +98,16 @@ namespace Calender
             Temp = Temp.AddYears(Job.Date.Year - 1);
             Temp = Temp.AddMonths(Job.Date.Month - 1);
             Temp = Temp.AddDays(Job.Date.Day - 1);
-            Temp = Temp.AddHours((int)nmFromHour.Value - 1);
-            Temp = Temp.AddMinutes((int)nmFormMinute.Value - 1);
+            Temp = Temp.AddHours((int)nmFromHour.Value);
+            Temp = Temp.AddMinutes((int)nmFormMinute.Value);
             Job.FromTime = Temp;
 
             DateTime Temp1 = new DateTime();
             Temp1 = Temp1.AddYears(Job.Date.Year - 1);
             Temp1 = Temp1.AddMonths(Job.Date.Month - 1);
             Temp1 = Temp1.AddDays(Job.Date.Day - 1);
-            Temp1 = Temp1.AddHours((int)nmToHour.Value - 1);
-            Temp1 = Temp1.AddMinutes((int)nmToMinute.Value - 1);
+            Temp1 = Temp1.AddHours((int)nmToHour.Value);
+            Temp1 = Temp1.AddMinutes((int)nmToMinute.Value);
             Job.ToTime = Temp1;
 
             Job.Status = PlanItem.JobStatus[cbStatus.SelectedIndex];
