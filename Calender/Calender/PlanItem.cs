@@ -21,7 +21,6 @@ namespace Calender
     /// </summary>
     public class PlanItem
     {
-
         private DateTime _Date;
         /// <summary>
         /// Lưu thời gian (Ngày/Tháng/Năm) của công việc (Job)
@@ -33,7 +32,6 @@ namespace Calender
         /// Lưu nội dung công việc (Job)
         /// </summary>
         public string Job { get => _Job; set => _Job = value; }
-
         private DateTime _FromTime;
         /// <summary>
         /// Lưu thời gian bắt đầu của công việc (Job)
@@ -51,6 +49,7 @@ namespace Calender
         /// Lưu trạng thái, tiến độ của công việc (Job)
         /// </summary>
         public string Status { get => _Status; set => _Status = value; }
+
 
         /// <summary>
         /// Lưu trạng thái, tiến độ của công việc (Job)

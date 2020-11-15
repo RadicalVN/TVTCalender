@@ -14,6 +14,5 @@ namespace Calender
         /// Lưu công việc (Property)
         /// </summary>
         public List<PlanItem> JobData { get => _JobData; set => _JobData = value; }
-
     }
 }

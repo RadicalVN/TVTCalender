@@ -69,6 +69,7 @@
             this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // btnSave
             // 
@@ -78,6 +79,7 @@
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Lưu";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // cbStatus
             // 
@@ -86,6 +88,7 @@
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(103, 21);
             this.cbStatus.TabIndex = 5;
+            this.cbStatus.SelectedValueChanged += new System.EventHandler(this.CbStatus_SelectedValueChanged);
             // 
             // panel2
             // 
@@ -111,6 +114,11 @@
             // nmToMinute
             // 
             this.nmToMinute.Location = new System.Drawing.Point(159, 0);
+            this.nmToMinute.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
             this.nmToMinute.Name = "nmToMinute";
             this.nmToMinute.Size = new System.Drawing.Size(32, 20);
             this.nmToMinute.TabIndex = 3;
@@ -118,6 +126,11 @@
             // nmToHour
             // 
             this.nmToHour.Location = new System.Drawing.Point(118, 0);
+            this.nmToHour.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
             this.nmToHour.Name = "nmToHour";
             this.nmToHour.Size = new System.Drawing.Size(35, 20);
             this.nmToHour.TabIndex = 2;
@@ -125,6 +138,11 @@
             // nmFormMinute
             // 
             this.nmFormMinute.Location = new System.Drawing.Point(43, 0);
+            this.nmFormMinute.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
             this.nmFormMinute.Name = "nmFormMinute";
             this.nmFormMinute.Size = new System.Drawing.Size(36, 20);
             this.nmFormMinute.TabIndex = 1;
@@ -132,6 +150,11 @@
             // nmFromHour
             // 
             this.nmFromHour.Location = new System.Drawing.Point(3, 0);
+            this.nmFromHour.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
             this.nmFromHour.Name = "nmFromHour";
             this.nmFromHour.Size = new System.Drawing.Size(34, 20);
             this.nmFromHour.TabIndex = 0;
@@ -151,6 +174,7 @@
             this.ckbDone.Size = new System.Drawing.Size(15, 14);
             this.ckbDone.TabIndex = 0;
             this.ckbDone.UseVisualStyleBackColor = true;
+            this.ckbDone.CheckedChanged += new System.EventHandler(this.CkbDone_CheckedChanged);
             // 
             // AJob
             // 

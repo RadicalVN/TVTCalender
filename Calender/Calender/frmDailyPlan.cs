@@ -108,15 +108,62 @@ namespace Calender
             // Tạo 1 đối tượng kiểu UserControl (AJob) để lưu 1 thông tin 1 công việc
             AJob aJob = new AJob(ajob);
 
+            // Ủy thác sự kiện Lưu và Xóa Job (Usercontrol tương ứng)
+            aJob.SaveJob += AJob_SaveJob;
+            aJob.DeleteJob += AJob_DeleteJob;
+
             fpnlJobs.Controls.Add(aJob);
         }
         #endregion
 
         #region // Method of handling the Event
-        private void dtpkDate_ValueChanged(object sender, EventArgs e)
+        private void DtpkDate_ValueChanged(object sender, EventArgs e)
         {
+            // Set lại ngày theo DateTimePicker
+            //Date = (sender as DateTimePicker).Value;
             // Thêm dữ liệu công việc của ngày (Date) lên form
             AddJobsByDate((sender as DateTimePicker).Value);
+        }
+
+        private void BtnPrevieusDay_Click(object sender, EventArgs e)
+        {
+            dtpkDate.Value = dtpkDate.Value.AddDays(-1);
+        }
+
+        private void BtnNextDay_Click(object sender, EventArgs e)
+        {
+            dtpkDate.Value = dtpkDate.Value.AddDays(1);
+        }
+
+        private void MnsiAddJob_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MnsiToDay_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AJob_DeleteJob(object sender, EventArgs e)
+        {
+            // UserControl cần xóa
+            AJob JobNeedDelete = sender as AJob;
+
+            // Dữ liệu công việc trong Item cần xóa
+            PlanItem JobDataNeedDelete = JobNeedDelete.Job;
+
+            // Xóa Công việc (Job = DataItem) khỏi dữ liệu
+            JobDataByDate.JobData.Remove(JobDataNeedDelete);
+
+            // Xóa Usercontrol (AJob) ra khỏi FlowLayoutPanel (fpnlJobs)
+            fpnlJobs.Controls.Remove(JobNeedDelete);
+
+            AddJobsByDate(dtpkDate.Value);
+        }
+
+        private void AJob_SaveJob(object sender, EventArgs e)
+        {
         }
         #endregion
     }

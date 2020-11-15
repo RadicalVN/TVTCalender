@@ -58,12 +58,14 @@
             this.mnsiAddJob.Name = "mnsiAddJob";
             this.mnsiAddJob.Size = new System.Drawing.Size(73, 20);
             this.mnsiAddJob.Text = "Thêm việc";
+            this.mnsiAddJob.Click += new System.EventHandler(this.MnsiAddJob_Click);
             // 
             // mnsiToDay
             // 
             this.mnsiToDay.Name = "mnsiToDay";
             this.mnsiToDay.Size = new System.Drawing.Size(68, 20);
             this.mnsiToDay.Text = "Hôm nay";
+            this.mnsiToDay.Click += new System.EventHandler(this.MnsiToDay_Click);
             // 
             // panel1
             // 
@@ -97,7 +99,7 @@
             this.dtpkDate.Name = "dtpkDate";
             this.dtpkDate.Size = new System.Drawing.Size(200, 20);
             this.dtpkDate.TabIndex = 2;
-            this.dtpkDate.ValueChanged += new System.EventHandler(this.dtpkDate_ValueChanged);
+            this.dtpkDate.ValueChanged += new System.EventHandler(this.DtpkDate_ValueChanged);
             // 
             // btnPrevieusDay
             // 
@@ -107,6 +109,7 @@
             this.btnPrevieusDay.TabIndex = 0;
             this.btnPrevieusDay.Text = "Hôm qua";
             this.btnPrevieusDay.UseVisualStyleBackColor = true;
+            this.btnPrevieusDay.Click += new System.EventHandler(this.BtnPrevieusDay_Click);
             // 
             // btnNextDay
             // 
@@ -116,6 +119,7 @@
             this.btnNextDay.TabIndex = 1;
             this.btnNextDay.Text = "Ngày mai";
             this.btnNextDay.UseVisualStyleBackColor = true;
+            this.btnNextDay.Click += new System.EventHandler(this.BtnNextDay_Click);
             // 
             // frmDailyPlan
             // 

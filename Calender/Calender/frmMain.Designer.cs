@@ -102,7 +102,7 @@
             this.btnToday.TabIndex = 1;
             this.btnToday.Text = "Hôm nay";
             this.btnToday.UseVisualStyleBackColor = true;
-            this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
+            this.btnToday.Click += new System.EventHandler(this.BtnToday_Click);
             // 
             // dtpkDate
             // 
@@ -110,7 +110,7 @@
             this.dtpkDate.Name = "dtpkDate";
             this.dtpkDate.Size = new System.Drawing.Size(200, 20);
             this.dtpkDate.TabIndex = 0;
-            this.dtpkDate.ValueChanged += new System.EventHandler(this.dtpkDate_ValueChanged);
+            this.dtpkDate.ValueChanged += new System.EventHandler(this.DtpkDate_ValueChanged);
             // 
             // panel2
             // 
@@ -161,7 +161,7 @@
             this.btnNext.TabIndex = 8;
             this.btnNext.Text = "Tháng sau";
             this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            this.btnNext.Click += new System.EventHandler(this.BtnNext_Click);
             // 
             // btnSunday
             // 
@@ -225,7 +225,7 @@
             this.btnPrivious.TabIndex = 0;
             this.btnPrivious.Text = "Tháng trước";
             this.btnPrivious.UseVisualStyleBackColor = true;
-            this.btnPrivious.Click += new System.EventHandler(this.btnPrivious_Click);
+            this.btnPrivious.Click += new System.EventHandler(this.BtnPrivious_Click);
             // 
             // FrmMain
             // 

@@ -12,7 +12,6 @@ using System.Xml.Serialization;
 
 namespace Calender
 {
-
     public partial class FrmMain : Form
     {
         #region // Properties
@@ -46,11 +45,12 @@ namespace Calender
 
             try
             {
-                JobObj =  DeserializeFromXML(filePath) as PlanData;
+                JobObj =  (DeserializeAllDataFromXML(filePath) as PlanData);
             }
             catch
             {
-                SetDefaultJobData();
+                MessageBox.Show("Lỗi load dữ liệu công việc từ file xml!");
+                //SetDefaultJobData();
             } // Load data lập lịch lên
 
         }
@@ -225,20 +225,20 @@ namespace Calender
             }
         } // Add ngày vào Button trong Matrix
 
-        private void SerializeToXML(object data, string filePath)
+        private void SerializeAllDataToXML(object data, string filePath)
         {
             // Khai một đối tượng để tạo kết nối ứng dụng đến data, đồng thời cấu hình:
             // Đường dẫn data = filePath, 
-            // Chế độ mở file: Mở hoặc tạo mới file nếu file chưa tồn tại,
+            // Chế độ mở file: Mở file, làm rỗng file
             // Chế độ truy cập file: Mở file để ghi data vào,
             // Chế độ share data: không cho phép tiến trình khác truy cập (đọc/ghi/delete) nếu tiến trình hiện tại đang truy cập
-            FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.ReadWrite);
+            FileStream fs = new FileStream(filePath, FileMode.Truncate, FileAccess.Write);
             
             // Khai báo một đối tượng để Serialize (ghi và lưu) data (PlanData) xuống bộ nhớ
             // Chỉ định lưu (serialize) thành file XML
             // Serialize theo cấu trúc dữ liệu nào (hiện tại là kiểu dữ liệu PlanData)
             XmlSerializer sr = new XmlSerializer(typeof(PlanData));
-
+            
             // Thực hiện mở lưu data xuống
             sr.Serialize(fs, data);
 
@@ -246,9 +246,14 @@ namespace Calender
             fs.Close();
         } // Kết nối và lưu data xuống
 
-        private object DeserializeFromXML(string filePath)
+        private object DeserializeAllDataFromXML(string filePath)
         {
-            FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.None);
+            // Khai một đối tượng để tạo kết nối ứng dụng đến data, đồng thời cấu hình:
+            // Đường dẫn data = filePath, 
+            // Chế độ mở file: Mở file, nếu file không tồn tại thì tạo file mới
+            // Chế độ truy cập file: Mở file để đọc (load) data lên
+            // Chế độ share data: không cho phép tiến trình khác truy cập (đọc/ghi/delete) nếu tiến trình hiện tại đang truy cập
+            FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.Read);
             try
             {
 
@@ -275,33 +280,43 @@ namespace Calender
                 Date = DateTime.Now,
                 Job = "Công việc mặc định, hãy chỉnh sửa",
                 FromTime = DateTime.Now,
-                ToTime = DateTime.Now.AddHours(1),
+                ToTime = DateTime.Now,
                 Status = PlanItem.JobStatus[(int)EJobStatus.DOING]
             };
 
+            // Khai báo và khởi tạo 1 job mặc định
+            PlanItem jobDefault2 = new PlanItem()
+            {
+                Date = DateTime.Now,
+                Job = "Công việc thứ 2",
+                FromTime = DateTime.Now,
+                ToTime = DateTime.Now,
+                Status = PlanItem.JobStatus[(int)EJobStatus.MISSED]
+            };
+
             // Thêm jobDefault vào JobData (Danh sách công việc - data)
-            JobObj.JobData = new List<PlanItem>() {jobDefault};
+            JobObj.JobData = new List<PlanItem>() {jobDefault, jobDefault2};
         }// Thêm 1 công việc mặc định
         #endregion
 
         #region // Method of handling the Event
-        private void dtpkDate_ValueChanged(object sender, EventArgs e)
+        private void DtpkDate_ValueChanged(object sender, EventArgs e)
         {
             ClearMatrixButton();
             AddDateToMatrix((sender as DateTimePicker).Value);
         }
 
-        private void btnPrivious_Click(object sender, EventArgs e)
+        private void BtnPrivious_Click(object sender, EventArgs e)
         {
             dtpkDate.Value = dtpkDate.Value.AddMonths(-1);
         }
 
-        private void btnNext_Click(object sender, EventArgs e)
+        private void BtnNext_Click(object sender, EventArgs e)
         {
             dtpkDate.Value = dtpkDate.Value.AddMonths(1);
         }
 
-        private void btnToday_Click(object sender, EventArgs e)
+        private void BtnToday_Click(object sender, EventArgs e)
         {
             dtpkDate.Value = DateTime.Now;
         }
@@ -318,7 +333,7 @@ namespace Calender
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SerializeToXML(JobObj, filePath);
+            SerializeAllDataToXML(JobObj, filePath);
         }
         #endregion
     }
