@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDailyPlan));
             this.mnsMain = new System.Windows.Forms.MenuStrip();
             this.mnsiAddJob = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsiToDay = new System.Windows.Forms.ToolStripMenuItem();
@@ -128,6 +129,7 @@
             this.ClientSize = new System.Drawing.Size(684, 309);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.mnsMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnsMain;
             this.Name = "frmDailyPlan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
