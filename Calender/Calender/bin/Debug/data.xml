@@ -1,19 +1,4 @@
 <?xml version="1.0"?>
 <PlanData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <JobData>
-    <PlanItem>
-      <Date>2020-11-11T00:33:21.4333186+07:00</Date>
-      <Job>svsdb</Job>
-      <FromTime>2020-11-11T03:03:00</FromTime>
-      <ToTime>2020-11-11T03:03:00</ToTime>
-      <Status>DONE</Status>
-    </PlanItem>
-    <PlanItem>
-      <Date>2020-11-18T00:00:00</Date>
-      <Job>thử</Job>
-      <FromTime>2020-11-18T04:04:00</FromTime>
-      <ToTime>2020-11-18T04:04:00</ToTime>
-      <Status>DOING</Status>
-    </PlanItem>
-  </JobData>
+  <JobData />
 </PlanData>

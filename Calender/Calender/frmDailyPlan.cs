@@ -141,9 +141,26 @@ namespace Calender
             newItem.Date = dtpkDate.Value;
 
             AJob newJob = new AJob(newItem);
-
+            newJob.DeleteJob += NewJob_DeleteJob;
             fpnlJobs.Controls.Add(newJob);
             JobDataByDate.JobData.Add(newItem);
+        }
+
+        private void NewJob_DeleteJob(object sender, EventArgs e)
+        {
+            // UserControl cần xóa
+            AJob JobNeedDelete = sender as AJob;
+
+            // Dữ liệu công việc trong Item cần xóa
+            PlanItem JobDataNeedDelete = JobNeedDelete.Job;
+
+            // Xóa Usercontrol (AJob) ra khỏi FlowLayoutPanel (fpnlJobs)
+            fpnlJobs.Controls.Remove(JobNeedDelete);
+
+            // Xóa Công việc (Job = DataItem) khỏi dữ liệu
+            JobDataByDate.JobData.Remove(JobDataNeedDelete);
+
+            //AddJobsByDate(dtpkDate.Value);
         }
 
         private void MnsiToDay_Click(object sender, EventArgs e)
@@ -159,13 +176,13 @@ namespace Calender
             // Dữ liệu công việc trong Item cần xóa
             PlanItem JobDataNeedDelete = JobNeedDelete.Job;
 
-            // Xóa Công việc (Job = DataItem) khỏi dữ liệu
-            JobDataByDate.JobData.Remove(JobDataNeedDelete);
-
             // Xóa Usercontrol (AJob) ra khỏi FlowLayoutPanel (fpnlJobs)
             fpnlJobs.Controls.Remove(JobNeedDelete);
 
-            AddJobsByDate(dtpkDate.Value);
+            // Xóa Công việc (Job = DataItem) khỏi dữ liệu
+            JobDataByDate.JobData.Remove(JobDataNeedDelete);
+            
+            //AddJobsByDate(dtpkDate.Value);
         }
 
         private void AJob_SaveJob(object sender, EventArgs e)
