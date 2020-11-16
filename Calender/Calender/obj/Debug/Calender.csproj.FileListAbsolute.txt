@@ -9,3 +9,4 @@ D:\Lap-Trinh\JuniorWinformCSharp\TVTCalender\Calender\Calender\obj\Debug\Calende
 D:\Lap-Trinh\JuniorWinformCSharp\TVTCalender\Calender\Calender\obj\Debug\Calender.pdb
 D:\Lap-Trinh\JuniorWinformCSharp\TVTCalender\Calender\Calender\obj\Debug\Calender.AJob.resources
 D:\Lap-Trinh\JuniorWinformCSharp\TVTCalender\Calender\Calender\obj\Debug\Calender.frmDailyPlan.resources
+D:\Lap-Trinh\JuniorWinformCSharp\TVTCalender\Calender\Calender\obj\Debug\Calender.csprojAssemblyReference.cache
